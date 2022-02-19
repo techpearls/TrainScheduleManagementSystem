@@ -12,9 +12,9 @@ Contents
 ### Design
 
 The project is organized into Api, Services and Tests.
-- The API layer does basic validation and acts as a wrapper.
+- The trains API allows to create and manage train schedules.
 - The services layer contains the core business logic and interacts with the database.
-- The tests consists of unit tests for API, services and the database layer.
+- The tests consists of unit tests for API, services and the database.
 
 ### Installation
 
@@ -24,11 +24,11 @@ The project is organized into Api, Services and Tests.
 4. Set Trains.Api as the Startup Project by right clicking on the Trains.Api and selecting `Set As Startup Project`
 5. Build the solution by choosing Build -> Rebuild All (or Build All) from the menu bar
 6. Run using the Run -> Start Without Debugging from the menu bar
-7. Use a tool similar to Postman to use the locally running APIs
+7. Use a tool like Curl or Postman to send requests to the API at endpoint:http://localhost:5000/api/v1/
 
 ### Assumptions
 1. All times in the APIs are in UTC timezone.
-2. Since POST requests are non-idempotent, if one of the values to create train schedule is wrong, the entire request is rejected.
+2. Since POST requests are non-idempotent, if one of the values to create train schedule is invalid ([0-2359]) the entire request is rejected.
 
 ### Usage
 1. Creating a new schedule
