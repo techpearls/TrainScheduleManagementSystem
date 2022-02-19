@@ -19,7 +19,7 @@ The project is organized into Api, Services and Tests.
 ### Installation
 
 1. Install [`Visual Studio`](https://visualstudio.microsoft.com/downloads/)
-2. Clone git repo locally using `$ git clone <link-to-repo>`
+2. Clone git repo locally using `$ git clone https://github.com/techpearls/TrainScheduleManagementSystem.git`
 3. Open the solution in Visual Studio
 4. Set Trains.Api as the Startup Project by right clicking on the Trains.Api and selecting `Set As Startup Project`
 5. Build the solution by choosing Build -> Rebuild All (or Build All) from the menu bar
