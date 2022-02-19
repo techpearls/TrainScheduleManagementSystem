@@ -23,7 +23,7 @@ namespace Trains.Api.Controllers
         /// Gets schedule for a given train Id.
         /// </summary>
         /// <param name="trainId"></param>
-        /// <returns></returns>
+        /// <returns>Schedule for a given train as a list of strings</returns>
         [HttpGet]
         [Route("{trainId}", Name = nameof(GetSchedule))]
         public IActionResult GetSchedule(string trainId)
@@ -48,7 +48,7 @@ namespace Trains.Api.Controllers
         /// and MM represents minutes (between 0 and 59 inclusive)
         /// </summary>
         /// <param name="trainSchedule"></param>
-        /// <returns></returns>
+        /// <returns>Created, if successful</returns>
         [HttpPost(Name = nameof(AddSchedule))]        
         public IActionResult AddSchedule([FromBody] TrainSchedule trainSchedule)
         {
@@ -80,6 +80,11 @@ namespace Trains.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Gets the next time when 2 or more trains are at the station
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns>Empty string or time in 24 hour format as string</returns>
         [HttpGet]
         [Route("next/{time}", Name = nameof(GetNext))]
         public IActionResult GetNext(string time)
@@ -108,6 +113,10 @@ namespace Trains.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Gets all the trains with schedules
+        /// </summary>
+        /// <returns>Dictionary with train ID and schedules</returns>
         [HttpGet(Name = nameof(GetAll))]
         public IActionResult GetAll()
         {
