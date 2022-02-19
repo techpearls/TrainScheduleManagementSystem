@@ -68,7 +68,7 @@ namespace Trains.Api.Controllers
                 }
 
                 _service.CreateSchedule(trainSchedule.TrainId, trainSchedule.Schedules);
-                return StatusCode((int)HttpStatusCode.OK);
+                return StatusCode((int)HttpStatusCode.Created);
             }
             catch (ArgumentException ex)
             {
@@ -108,8 +108,7 @@ namespace Trains.Api.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("all", Name = nameof(GetAll))]
+        [HttpGet(Name = nameof(GetAll))]
         public IActionResult GetAll()
         {
             return StatusCode((int)HttpStatusCode.OK, _service.GetAll());

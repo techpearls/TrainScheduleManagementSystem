@@ -87,7 +87,7 @@ namespace Trains.Tests
             });
 
             var objResponse = response as StatusCodeResult;
-            Assert.AreEqual((int)HttpStatusCode.OK, objResponse.StatusCode);
+            Assert.AreEqual((int)HttpStatusCode.Created, objResponse.StatusCode);
 
         }
         #endregion
