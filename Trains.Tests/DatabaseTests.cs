@@ -25,11 +25,11 @@ namespace Trains.Tests
         [Test]
         public void GetNextTests()
         {
-            int length = _db.ScheduleCounts.Length;
-            _db.ScheduleCounts[0] = 3;
-            _db.ScheduleCounts[length - 1] = 1;
-            _db.ScheduleCounts[250] = 1;
-            _db.ScheduleCounts[400] = 5;
+            int length = Database.ScheduleCounts.Length;
+            Database.ScheduleCounts[0] = 3;
+            Database.ScheduleCounts[length - 1] = 1;
+            Database.ScheduleCounts[250] = 1;
+            Database.ScheduleCounts[400] = 5;
 
             int index = _db.GetNext(300);
             Assert.AreEqual(400, index);

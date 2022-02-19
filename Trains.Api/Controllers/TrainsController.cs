@@ -82,7 +82,7 @@ namespace Trains.Api.Controllers
 
         [HttpGet]
         [Route("next/{time}", Name = nameof(GetNext))]
-        public IActionResult GetNext([FromQuery] string time)
+        public IActionResult GetNext(string time)
         {
             if (string.IsNullOrEmpty(time) || string.IsNullOrWhiteSpace(time))
             {
@@ -106,6 +106,13 @@ namespace Trains.Api.Controllers
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError, e);
             }
+        }
+
+        [HttpGet]
+        [Route("all", Name = nameof(GetAll))]
+        public IActionResult GetAll()
+        {
+            return StatusCode((int)HttpStatusCode.OK, _service.GetAll());
         }
     }
 }

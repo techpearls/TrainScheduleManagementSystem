@@ -5,14 +5,18 @@ namespace Trains.Api.Repository
 {
     public class Database : IDatabase
     {
-        public Dictionary<string, List<string>> TrainSchedule { get; set; }
-        public int[] ScheduleCounts { get; set; }
+        public static Dictionary<string, List<string>> TrainSchedule { get; set; }
+        public static int[] ScheduleCounts { get; set; }
         private readonly object _lockObj;
 
-        public Database()
+        static Database()
         {
             TrainSchedule = new Dictionary<string, List<string>>();
             ScheduleCounts = new int[24 * 60]; // Array to hold data for every minute in a day
+        }
+
+        public Database()
+        {
             _lockObj = new object();
         }
 

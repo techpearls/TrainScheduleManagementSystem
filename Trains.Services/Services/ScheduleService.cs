@@ -10,6 +10,7 @@ namespace Trains.Api.Services
         public List<string> GetSchedule(string id);
         public void CreateSchedule(string id, List<string> times);
         public string GetNext(string time);
+        public Dictionary<string, List<string>> GetAll();
     }
 
     /// <summary>
@@ -68,6 +69,11 @@ namespace Trains.Api.Services
                 return string.Empty;
 
             return TimeConversionUtility.GetTimeFromIndex(nextIndex);
+        }
+
+        public Dictionary<string, List<string>> GetAll()
+        {
+            return _db.Keys();
         }
     }
 }
