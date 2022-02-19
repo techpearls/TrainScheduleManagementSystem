@@ -34,6 +34,9 @@ The project is organized into Api, Services and Tests.
 1. Creating a new schedule
 <img width="863" alt="Screen Shot 2022-02-18 at 8 55 51 PM" src="https://user-images.githubusercontent.com/11620079/154786892-783011b6-03e5-4ebd-bf38-cdfd190f736e.png">
 
+2. Getting a train schedule
+<img width="850" alt="Screen Shot 2022-02-18 at 9 49 35 PM" src="https://user-images.githubusercontent.com/11620079/154788306-e8b8f0c5-891b-4a76-ab99-e71079ea9176.png">
+
 ### Future Considerations
 
 The project is extensible to hold specific station data. It can also be extended to add many-to-many train schedule and station data.
