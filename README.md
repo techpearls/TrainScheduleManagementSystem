@@ -19,7 +19,7 @@ The project is organized into Api, Services and Tests.
 ### Installation
 
 1. Install [`Visual Studio`](https://visualstudio.microsoft.com/downloads/)
-2. Clone git repo locally using `$ git clone <link-to-repo>`
+2. Clone git repo locally using `$ git clone https://github.com/techpearls/TrainScheduleManagementSystem.git`
 3. Open the solution in Visual Studio
 4. Set Trains.Api as the Startup Project by right clicking on the Trains.Api and selecting `Set As Startup Project`
 5. Build the solution by choosing Build -> Rebuild All (or Build All) from the menu bar
@@ -30,8 +30,12 @@ The project is organized into Api, Services and Tests.
 1. All times in the APIs are in UTC timezone.
 2. Since POST requests are non-idempotent, if one of the values to create train schedule is wrong, the entire request is rejected.
 
+### Usage
+1. Creating a new schedule
+<img width="863" alt="Screen Shot 2022-02-18 at 8 55 51 PM" src="https://user-images.githubusercontent.com/11620079/154786892-783011b6-03e5-4ebd-bf38-cdfd190f736e.png">
+
 ### Future Considerations
 
 The project is extensible to hold specific station data. It can also be extended to add many-to-many train schedule and station data.
 We can also add local time handling capabilities.
-We can also add PUT, PATCH and DELETE endpoints to manage train schedules. 
+We can also add PUT, PATCH and DELETE endpoints to manage train schedules. We can additionally add authentication and authorization capabilities to the APIs.
