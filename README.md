@@ -46,6 +46,7 @@ The project is organized into Api, Services and Tests.
 
 ### Future Considerations
 
-The project is extensible to hold specific station data. It can also be extended to add many-to-many train schedule and station data.
-We can also add local time handling capabilities.
-We can also add PUT, PATCH and DELETE endpoints to manage train schedules. We can additionally add authentication and authorization capabilities to the APIs.
+- The project is extensible to hold specific station data. It can also be extended to add many-to-many train schedule and station data.
+- We can also add local time handling capabilities.
+- We can also add PUT, PATCH and DELETE endpoints to manage train schedules. 
+- We can additionally add authentication and authorization capabilities to the APIs.
