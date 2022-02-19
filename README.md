@@ -37,6 +37,13 @@ The project is organized into Api, Services and Tests.
 2. Getting a train schedule
 <img width="850" alt="Screen Shot 2022-02-18 at 9 49 35 PM" src="https://user-images.githubusercontent.com/11620079/154788306-e8b8f0c5-891b-4a76-ab99-e71079ea9176.png">
 
+3. Getting all schedules
+<img width="873" alt="Screen Shot 2022-02-18 at 10 01 31 PM" src="https://user-images.githubusercontent.com/11620079/154788595-f249cb0f-8cd8-4f54-b5fc-d28440f61d4c.png">
+
+4. Get next time when 2 or more trains are at the station
+<img width="771" alt="Screen Shot 2022-02-18 at 10 16 02 PM" src="https://user-images.githubusercontent.com/11620079/154789022-2135c04b-95f9-4c8f-a380-d479eed7fab3.png">
+
+
 ### Future Considerations
 
 The project is extensible to hold specific station data. It can also be extended to add many-to-many train schedule and station data.
