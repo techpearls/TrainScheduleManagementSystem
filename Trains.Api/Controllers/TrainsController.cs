@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc;
@@ -53,6 +54,19 @@ namespace Trains.Api.Controllers
         {
             try
             {
+                if(!ModelState.IsValid)
+                {
+                    var errors = new List<string>();
+                    foreach (var state in ModelState)
+                    {
+                        foreach (var error in state.Value.Errors)
+                        {
+                            errors.Add(error.ErrorMessage);
+                        }
+                    }
+                    return StatusCode((int)HttpStatusCode.BadRequest, errors);
+                }
+
                 _service.CreateSchedule(trainSchedule.TrainId, trainSchedule.Schedules);
                 return StatusCode((int)HttpStatusCode.OK);
             }
