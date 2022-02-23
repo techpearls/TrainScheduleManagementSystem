@@ -64,7 +64,7 @@ namespace Trains.Api.Controllers
                             errors.Add(error.ErrorMessage);
                         }
                     }
-                    return StatusCode((int)HttpStatusCode.BadRequest, errors);
+                    return StatusCode((int)HttpStatusCode.BadRequest, string.Join(',', errors));
                 }
 
                 _service.CreateSchedule(trainSchedule.TrainId, trainSchedule.Schedules);
@@ -72,11 +72,11 @@ namespace Trains.Api.Controllers
             }
             catch (ArgumentException ex)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, ex);
+                return StatusCode((int)HttpStatusCode.BadRequest, ex.Message);
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.InternalServerError, e);
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
 
@@ -105,11 +105,11 @@ namespace Trains.Api.Controllers
             }
             catch (ArgumentException ex)
             {
-                return StatusCode((int)HttpStatusCode.BadRequest, ex);
+                return StatusCode((int)HttpStatusCode.BadRequest, ex.Message);
             }
             catch (Exception e)
             {
-                return StatusCode((int)HttpStatusCode.InternalServerError, e);
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
 

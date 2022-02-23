@@ -7,7 +7,7 @@ namespace Trains.Api.Repository
     {
         public static Dictionary<string, List<string>> TrainSchedule { get; set; }
         public static int[] ScheduleCounts { get; set; }
-        private readonly object _lockObj;
+        private readonly object _setLock, _updateLock;
 
         static Database()
         {
@@ -17,7 +17,8 @@ namespace Trains.Api.Repository
 
         public Database()
         {
-            _lockObj = new object();
+            _setLock = new object();
+            _updateLock = new object();
         }
 
         public List<string> Get(string key)
@@ -33,7 +34,7 @@ namespace Trains.Api.Repository
         public void Set(string key, List<string> value)
         {
             // Tries to obtain a resource lock and times out in 1 second
-            if (Monitor.TryEnter(_lockObj, 1000))
+            if (Monitor.TryEnter(_setLock, 1000))
             {
                 try
                 {
@@ -41,16 +42,26 @@ namespace Trains.Api.Repository
                 }
                 finally
                 {
-                    Monitor.Exit(_lockObj);
+                    Monitor.Exit(_setLock);
                 }
             }
         }
 
         public void UpdateScheduleCounts(List<int> indices)
         {
-            foreach (var index in indices)
+            if(Monitor.TryEnter(_updateLock, 2000))
             {
-                ScheduleCounts[index]++;
+                try
+                {
+                    foreach (var index in indices)
+                    {
+                        ScheduleCounts[index]++;
+                    }
+                }
+                finally
+                {
+                    Monitor.Exit(_updateLock);
+                }
             }
         }
 
